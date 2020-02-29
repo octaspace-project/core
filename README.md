@@ -1,0 +1,2 @@
+# core
+Core Erlang Libraries
