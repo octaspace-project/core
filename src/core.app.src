@@ -1,6 +1,6 @@
 {application, core, [
     {description, "CORE"},
     {vsn, semver},
-    {applications, [kernel, stdlib]},
+    {applications, [kernel, stdlib, recon]},
     {mod, {core_app, []}}
 ]}.
