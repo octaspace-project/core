@@ -3,8 +3,9 @@
 -export([rfc1123/0]).
 -export([weekday/1]).
 -export([month/1]).
+-export([datetime_to_timestamp/1]).
 
-%% Thu, 9 Aug 2018 19:16:40 +0300
+%% Thu, 9 Aug 2018 19:16:40 GMT
 rfc1123() ->
     {{Year, Month, Day}, {HH, MM, SS}} = calendar:universal_time(),
     <<
@@ -46,3 +47,8 @@ month(9)  -> <<"Sep">>;
 month(10) -> <<"Oct">>;
 month(11) -> <<"Nov">>;
 month(12) -> <<"Dec">>.
+
+%% {{2020,6,5},{19,37,13}} -> 1591385844
+-spec datetime_to_timestamp(DateTime :: calendar:datetime()) -> pos_integer().
+datetime_to_timestamp(DateTime) ->
+    calendar:datetime_to_gregorian_seconds(DateTime) - 62167219200.
